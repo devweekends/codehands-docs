@@ -1,0 +1,505 @@
+Title,Description,Priority,Status,Assignee,Labels,Estimate,Due Date,Project
+"Create the GitHub org, the codehands repo and the Linear project","Why: Everyone needs one place to push on Monday morning.
+
+Done when: Repo exists with all five people, main protected, this CSV imported, a PR with the issue id closes it.",Urgent,Todo,Lead,"setup,sprint,week-1",1,19/10/2026,Code Hands AI
+"Team accounts with spending caps: Anthropic, OpenAI, Vercel","Why: Real tasks from Tuesday, without personal cards.
+
+Done when: One team account each with a cap. Keys in a gitignored .env, .env.example committed.",Urgent,Todo,Talha Atif,"setup,eval,sprint,week-1",1,19/10/2026,Code Hands AI
+Set up your laptop,"Why: Everything runs on your laptop this month.
+
+Done when: Node 22, pnpm and Git work, and you can run the repo's empty dev command. Claude Code and Codex CLI installed and signed in with the team key.",High,Todo,Tahira Batool,"setup,local,sprint,week-1",1,19/10/2026,Code Hands AI
+Set up your laptop,"Why: Everything runs on your laptop this month.
+
+Done when: Node 22, pnpm and Git work, and you can run the repo's empty dev command. Docker installed, and SSH access to the Linux server.",High,Todo,Syeda Midhat Kazmi,"setup,local,sprint,week-1",1,19/10/2026,Code Hands AI
+Set up your laptop,"Why: Everything runs on your laptop this month.
+
+Done when: Node 22, pnpm and Git work, and you can run the repo's empty dev command. Rust toolchain for Tauri installed.",High,Todo,Tania Ashraf,"setup,local,sprint,week-1",1,19/10/2026,Code Hands AI
+Set up your laptop,"Why: Everything runs on your laptop this month.
+
+Done when: Node 22, pnpm and Git work, and you can run the repo's empty dev command. A Vercel account on the team, and your phone ready to add a web app to its home screen.",High,Todo,Memona Amir,"setup,local,sprint,week-1",1,19/10/2026,Code Hands AI
+Set up your laptop,"Why: Everything runs on your laptop this month.
+
+Done when: Node 22, pnpm and Git work, and you can run the repo's empty dev command. Python with uv installed.",High,Todo,Talha Atif,"setup,local,sprint,week-1",1,19/10/2026,Code Hands AI
+Monorepo skeleton with a folder per part,"Why: Each person owns a folder and nobody steps on anyone.
+
+Done when: pnpm install and pnpm test pass on a fresh clone. Folders: apps/cli, apps/desktop, apps/web, apps/api, packages/runner, packages/pricing, packages/telemetry, python/evals, infra. CODEOWNERS set.",Urgent,Todo,Tahira Batool,"setup,core,sprint,week-1",1,19/10/2026,Code Hands AI
+"Linux server ready: Docker Compose with Postgres, Caddy for HTTPS, Langfuse","Why: One small server of ours holds session state and traces. It never runs a task.
+
+Done when: The server answers on HTTPS at our domain, Postgres and Langfuse are up, and the compose file is in infra/.",Urgent,Todo,Talha Atif,"setup,server,sprint,week-1",2,19/10/2026,Code Hands AI
+State API with the five tables and sample rows,"Why: Week 1 goal: by Friday Oct 23 anyone on the team can start a task on their laptop from their phone, watch it, read the change and approve it. All work runs on the laptop, only session state is on our small Linux server. Both apps build against these rows from Monday afternoon.
+
+Done when: A small Node API (Fastify) on the server with devices, projects, sessions, events, commands in Postgres, and ten sample sessions with events loaded. Every request checks the user.",Urgent,Todo,Syeda Midhat Kazmi,"core,api,sprint,week-1",2,19/10/2026,Code Hands AI
+Sign in with GitHub for the web app and the laptop,"Why: Each person only sees and controls their own laptops and sessions.
+
+Done when: Sign in works from the phone web app and the codehands command with the same GitHub account.",High,Todo,Syeda Midhat Kazmi,"core,api,sprint,week-1",1,20/10/2026,Code Hands AI
+codehands command and daemon: copy sessions and events up to our server,"Why: The phone can only show what reaches the server.
+
+Done when: A task started with codehands run appears on the server within a second and its events keep streaming over one outgoing WebSocket.",Urgent,Todo,Syeda Midhat Kazmi,"core,cli,sprint,week-1",2,20/10/2026,Code Hands AI
+"Daemon picks up commands from the server: start, stop, approve, reject","Why: This is how the phone controls the laptop without connecting to it.
+
+Done when: A start row written from anywhere begins a task on the right laptop. Commands for other users or unregistered repos are refused.",Urgent,Todo,Syeda Midhat Kazmi,"core,api,security,sprint,week-1",2,21/10/2026,Code Hands AI
+Pair a laptop to an account and register repos,"Why: The phone needs to know which laptop and which repos it can use.
+
+Done when: codehands login pairs the laptop. Repos added in the desktop app show on the phone.",High,Todo,Syeda Midhat Kazmi,"core,api,sprint,week-1",1,22/10/2026,Code Hands AI
+Session runner: run Claude Code with no screen in its own copy of the repo,"Why: Week 1 goal: by Friday Oct 23 anyone on the team can start a task on their laptop from their phone, watch it, read the change and approve it. All work runs on the laptop, only session state is on our small Linux server.
+
+Done when: A task creates a git worktree, runs claude -p with stream-json output inside it, and each line becomes an event.",Urgent,Todo,Tahira Batool,"core,runner,sprint,week-1",2,20/10/2026,Code Hands AI
+Stop and resume a session,"Why: A user must be able to stop a task from the phone and continue it later.
+
+Done when: Stop ends the process cleanly with no leftovers. Resume continues the same Claude Code session.",High,Todo,Tahira Batool,"core,runner,sprint,week-1",1,21/10/2026,Code Hands AI
+"The change, approve and reject","Why: Approving from the phone is the point of the week.
+
+Done when: The session stores its diff. Approve commits it to a branch named after the task. Reject deletes the worktree.",Urgent,Todo,Tahira Batool,"core,runner,sprint,week-1",1,22/10/2026,Code Hands AI
+Codex as a second agent,"Why: Shows the runner is not tied to one tool, and gives us a second model to compare.
+
+Done when: A task can choose Codex (codex exec) and runs the same way.",Medium,Todo,Tahira Batool,"core,runner,sprint,week-1",1,22/10/2026,Code Hands AI
+"First memory: repo notes in, session summary out","Why: The first small step toward a system that learns each repo.
+
+Done when: A notes file per repo is given to every session. After each session a short summary is added to it.",Medium,Todo,Tahira Batool,"memory,sprint,week-1",1,23/10/2026,Code Hands AI
+Desktop app: list sessions from the daemon,"Why: Start building on sample sessions on Monday, no waiting for the runner.
+
+Done when: Tauri app opens, starts the daemon, and lists the sample sessions live.",Urgent,Todo,Tania Ashraf,"product,desktop,sprint,week-1",2,19/10/2026,Code Hands AI
+Desktop app: add a repo and start a task,"Why: The desk version of the main flow.
+
+Done when: Pick a folder, type a task, choose Claude Code or Codex and the model, and it starts on the laptop.",Urgent,Todo,Tania Ashraf,"product,desktop,sprint,week-1",2,21/10/2026,Code Hands AI
+Desktop app: live session view,"Why: Watching a task live is how people trust it.
+
+Done when: Events stream in as they happen and stay smooth on a long session.",High,Todo,Tania Ashraf,"product,desktop,sprint,week-1",1,21/10/2026,Code Hands AI
+Desktop app: read the change and approve or reject,"Why: The decision screen.
+
+Done when: The diff shows file by file. Approve and reject send commands and the session updates.",Urgent,Todo,Tania Ashraf,"product,desktop,sprint,week-1",1,22/10/2026,Code Hands AI
+Phone web app on Vercel: sign in and list sessions,"Why: Start on sample rows on Monday.
+
+Done when: A Next.js app on Vercel, added to the phone home screen, signs in with GitHub and lists sample sessions live from our server.",Urgent,Todo,Memona Amir,"product,web,sprint,week-1",2,19/10/2026,Code Hands AI
+Phone web app: watch a session live,"Why: Remote use starts with seeing what is happening.
+
+Done when: Open a session and see its events arrive as they happen on the laptop.",High,Todo,Memona Amir,"product,web,sprint,week-1",1,21/10/2026,Code Hands AI
+"Phone web app: start a task, approve, reject, stop","Why: This is the week 1 demo.
+
+Done when: From the phone, start a task in a registered repo, watch it, read the change, approve it, and it lands on a branch on the laptop.",Urgent,Todo,Memona Amir,"product,web,sprint,week-1",2,22/10/2026,Code Hands AI
+Cost per session in both apps,"Why: Cost is one of our main goals from day one.
+
+Done when: Each session shows its cost from Claude Code's result, and from a small price list for Codex, on phone and desktop.",High,Todo,Memona Amir,"models,cost,sprint,week-1",1,22/10/2026,Code Hands AI
+Five practice tasks with hidden tests,"Why: We need a fixed way to tell if it works.
+
+Done when: Five small tasks in sample repos, each with hidden tests, a right answer and a wrong answer.",High,Todo,Talha Atif,"eval,fixtures,sprint,week-1",2,20/10/2026,Code Hands AI
+A trace per session in Langfuse on our server,"Why: When a task goes wrong or costs too much, the trace shows where.
+
+Done when: Every session appears in Langfuse with its steps, time, tokens and cost.",High,Todo,Talha Atif,"eval,tracing,sprint,week-1",2,21/10/2026,Code Hands AI
+Scoring script and the first scorecard,"Why: Our first numbers.
+
+Done when: One command runs the five tasks through codehands and prints solved, time and cost. The scorecard is shown on Friday.",High,Todo,Talha Atif,"eval,harness,sprint,week-1",2,23/10/2026,Code Hands AI
+End-of-day plug-in: The desktop app and the phone web app list sample sessions,"Why: In week 1 we join our parts every day so Friday is not a surprise.
+
+Done when: The desktop app and the phone web app list sample sessions. If it breaks, write down why and fix it first thing tomorrow.
+
+Who: Tania Ashraf, Memona Amir, Syeda Midhat Kazmi, Talha Atif",High,Todo,Tania Ashraf,"integration,sprint,week-1",1,19/10/2026,Code Hands AI
+End-of-day plug-in: A task from the terminal shows up live on the server,"Why: In week 1 we join our parts every day so Friday is not a surprise.
+
+Done when: A task from the terminal shows up live on the server. If it breaks, write down why and fix it first thing tomorrow.
+
+Who: Tahira Batool, Syeda Midhat Kazmi",High,Todo,Tahira Batool,"integration,sprint,week-1",1,20/10/2026,Code Hands AI
+End-of-day plug-in: The desktop app starts a task and the phone shows it live,"Why: In week 1 we join our parts every day so Friday is not a surprise.
+
+Done when: The desktop app starts a task and the phone shows it live. If it breaks, write down why and fix it first thing tomorrow.
+
+Who: Tania Ashraf, Memona Amir, Syeda Midhat Kazmi, Tahira Batool",High,Todo,Tania Ashraf,"integration,sprint,week-1",1,21/10/2026,Code Hands AI
+"End-of-day plug-in: The phone approves a change made on the laptop, and every session has a trace","Why: In week 1 we join our parts every day so Friday is not a surprise.
+
+Done when: The phone approves a change made on the laptop, and every session has a trace. If it breaks, write down why and fix it first thing tomorrow.
+
+Who: Memona Amir, Syeda Midhat Kazmi, Tahira Batool, Talha Atif",High,Todo,Memona Amir,"integration,sprint,week-1",1,22/10/2026,Code Hands AI
+"Week 1 demo: start, watch and approve a task from a phone","Why: Week 1 goal: by Friday Oct 23 anyone on the team can start a task on their laptop from their phone, watch it, read the change and approve it. All work runs on the laptop, only session state is on our small Linux server.
+
+Done when: Someone in another room starts a task from their phone, watches it, approves it, and the branch is on the laptop. Cost, trace and the five-task scorecard are shown.",Urgent,Todo,Lead,"milestone,sprint,week-1",1,23/10/2026,Code Hands AI
+Sprint reading (about an hour),"Why: Only what you need to start Monday.
+
+Done when: Read before Monday morning.
+
+Read: Claude Code docs on headless mode (-p, --output-format stream-json, --resume), the git worktree page, the Codex CLI README section on codex exec",Medium,Todo,Tahira Batool,"learning,sprint,week-1",1,19/10/2026,Code Hands AI
+Sprint reading (about an hour),"Why: Only what you need to start Monday.
+
+Done when: Read before Monday morning.
+
+Read: The Fastify getting started page and its WebSocket plugin, a short guide to Postgres with Drizzle, the GitHub OAuth app docs",Medium,Todo,Syeda Midhat Kazmi,"learning,sprint,week-1",1,19/10/2026,Code Hands AI
+Sprint reading (about an hour),"Why: Only what you need to start Monday.
+
+Done when: Read before Monday morning.
+
+Read: The Tauri create a project page, a short guide to WebSockets in the browser",Medium,Todo,Tania Ashraf,"learning,sprint,week-1",1,19/10/2026,Code Hands AI
+Sprint reading (about an hour),"Why: Only what you need to start Monday.
+
+Done when: Read before Monday morning.
+
+Read: The Next.js getting started page, the Vercel guide to deploying Next.js, the Next.js page on the web app manifest, the cost fields in Claude Code's JSON output",Medium,Todo,Memona Amir,"learning,sprint,week-1",1,19/10/2026,Code Hands AI
+Sprint reading (about an hour),"Why: Only what you need to start Monday.
+
+Done when: Read before Monday morning.
+
+Read: The Docker Compose getting started page, the Caddy quickstart, the Langfuse self-hosting with Docker Compose page, the promptfoo getting started page",Medium,Todo,Talha Atif,"learning,sprint,week-1",1,19/10/2026,Code Hands AI
+"Weekend learning, week 2","Why: Learn just enough for this week's build. Half a page of notes in docs/learning/Tahira Batool/week-2.md.
+
+Done when: You have read or watched the items below and tried the small exercise.
+
+Read or watch: Docker in 100 Seconds; the Docker getting started guide; the XState state machine concepts page; the Drizzle SQLite quickstart
+
+Try: Run npm test in a container with 1 GB memory, no network and a 60-second limit.",Low,Todo,Tahira Batool,"core,learning,week-2",1,30/10/2026,Code Hands AI
+Run the repo's commands inside a locked Docker box,"Why: Nothing the AI runs should touch the laptop.
+
+Done when: Tests run in a container with no network, a memory limit and a time limit, and the result is saved.",High,Todo,Tahira Batool,"core,sandbox,week-2",2,30/10/2026,Code Hands AI
+"Our own engine: move a task through analyze, plan, implement, test, review","Why: We start replacing Claude Code with our own steps, so we can pick a model per step later.
+
+Done when: Choose Code Hands engine in the app and a task moves through its steps, sending the same events as Claude Code.",High,Todo,Tahira Batool,"core,engine,week-2",3,30/10/2026,Code Hands AI
+"Weekend learning, week 3","Why: Learn just enough for this week's build. Half a page of notes in docs/learning/Tahira Batool/week-3.md.
+
+Done when: You have read or watched the items below and tried the small exercise.
+
+Read or watch: A 10-minute SWE-agent or OpenHands demo; the first screen of the git apply man page; 20 minutes in the tree-sitter playground
+
+Try: Apply a patch from Node and make it refuse ../secret.",Low,Todo,Tahira Batool,"core,learning,week-3",1,06/11/2026,Code Hands AI
+"Safe hands for our engine: read, search, change code, limited to the repo","Why: These are the only ways our model touches the repo.
+
+Done when: Tools work on a sample repo and refuse ../ paths, symlinks out, .env files, and very long output.",High,Todo,Tahira Batool,"core,engine,security,week-3",3,06/11/2026,Code Hands AI
+"Run tests, and try to fix twice if they fail","Why: Most first attempts fail a test, one or two retries fix many.
+
+Done when: A planted failing task is fixed or stops cleanly after two tries with the reason saved.",Medium,Todo,Tahira Batool,"core,engine,week-3",2,06/11/2026,Code Hands AI
+Memory: list the functions and classes in a repo,"Why: A short map of the repo is cheaper than dumping files into the model.
+
+Done when: Symbol list for a sample repo in under 2 seconds.",Low,Todo,Tahira Batool,"memory,week-3",2,06/11/2026,Code Hands AI
+"Weekend learning, week 4","Why: Learn just enough for this week's build. Half a page of notes in docs/learning/Tahira Batool/week-4.md.
+
+Done when: You have read or watched the items below and tried the small exercise.
+
+Read or watch: Stripe's page on idempotent requests; the Letta quickstart
+
+Try: Kill your run with kill -9, restart, and note what it takes to continue.",Low,Todo,Tahira Batool,"core,learning,week-4",1,13/11/2026,Code Hands AI
+Save progress after every step and resume after a crash,"Why: Tasks take minutes and cost money.
+
+Done when: Stop the daemon mid-task, start it again, the task finishes with nothing lost.",High,Todo,Tahira Batool,"core,engine,week-4",2,13/11/2026,Code Hands AI
+Review step and tests that try to trick the agent,"Why: A second look and proof the guard rails hold.
+
+Done when: review.md has a verdict. Tests pass for ../ paths, endless commands, huge output, network calls, a README telling the agent to misbehave.",High,Todo,Tahira Batool,"core,security,week-4",2,13/11/2026,Code Hands AI
+Memory: the second task on a repo starts with what the first learned,"Why: Measurable first step of learning.
+
+Done when: Talha Atif's runner shows the second run of a task uses the first run's notes.",Medium,Todo,Tahira Batool,"memory,week-4",1,13/11/2026,Code Hands AI
+"Weekend learning, week 2","Why: Learn just enough for this week's build. Half a page of notes in docs/learning/Syeda Midhat Kazmi/week-2.md.
+
+Done when: You have read or watched the items below and tried the small exercise.
+
+Read or watch: A short guide to WebSocket reconnects with a last event id; the commander.js README; a one-page JSON-RPC explainer
+
+Try: Cut the network mid-session and make the phone catch up from the last event number.",Low,Todo,Syeda Midhat Kazmi,"core,learning,week-2",1,30/10/2026,Code Hands AI
+Laptop goes offline: queue events and send them when it is back,"Why: Laptops sleep and lose wifi.
+
+Done when: Turn off wifi mid-task, turn it back on, the phone catches up with nothing missing.",High,Todo,Syeda Midhat Kazmi,"core,api,week-2",2,30/10/2026,Code Hands AI
+Several laptops on one account,"Why: People have more than one machine.
+
+Done when: The phone lists both laptops and starts a task on the chosen one.",Medium,Todo,Syeda Midhat Kazmi,"core,api,week-2",2,30/10/2026,Code Hands AI
+pnpm dev starts everything locally,"Why: Same start for everyone.
+
+Done when: pnpm dev starts the daemon and the desktop app. pnpm dev --mock does it with fake models and no Docker.",High,Todo,Syeda Midhat Kazmi,"core,local,week-2",1,30/10/2026,Code Hands AI
+"Weekend learning, week 3","Why: Learn just enough for this week's build. Half a page of notes in docs/learning/Syeda Midhat Kazmi/week-3.md.
+
+Done when: You have read or watched the items below and tried the small exercise.
+
+Read or watch: The Aider scripting page; a short opencode demo
+
+Try: Run Aider from a script on a sample repo and capture its output.",Low,Todo,Syeda Midhat Kazmi,"core,learning,week-3",1,06/11/2026,Code Hands AI
+Aider as a third borrowed agent,"Why: More options and a check that the runner is general.
+
+Done when: A task can choose Aider and runs like the others.",Medium,Todo,Syeda Midhat Kazmi,"core,runner,week-3",2,06/11/2026,Code Hands AI
+Our engine's sessions look the same as Claude Code's everywhere,"Why: Users should not care which agent ran.
+
+Done when: Sessions from every agent look the same in the terminal, desktop and phone.",High,Todo,Syeda Midhat Kazmi,"core,cli,week-3",2,06/11/2026,Code Hands AI
+"Weekend learning, week 4","Why: Learn just enough for this week's build. Half a page of notes in docs/learning/Syeda Midhat Kazmi/week-4.md.
+
+Done when: You have read or watched the items below and tried the small exercise.
+
+Read or watch: The Guidelines section of clig.dev
+
+Try: Time a fresh download to first task on a friend's laptop and note every stumble.",Low,Todo,Syeda Midhat Kazmi,"core,learning,week-4",1,13/11/2026,Code Hands AI
+"Command hardening: timeouts, clean stop, clear errors","Why: First users judge a product by how it fails.
+
+Done when: Ctrl+C stops cleanly, every error says what to do next.",Medium,Todo,Syeda Midhat Kazmi,"core,cli,week-4",2,13/11/2026,Code Hands AI
+README: fresh download to a task from the phone in under fifteen minutes,"Why: The first doc we need, now that there is something to start.
+
+Done when: A teammate who did not build it follows the README alone.",High,Todo,Syeda Midhat Kazmi,"core,docs,week-4",1,13/11/2026,Code Hands AI
+"Weekend learning, week 2","Why: Learn just enough for this week's build. Half a page of notes in docs/learning/Tania Ashraf/week-2.md.
+
+Done when: You have read or watched the items below and tried the small exercise.
+
+Read or watch: The xterm.js getting started page; the first page of Anthropic tool use and OpenAI function calling; the LiteLLM getting started page
+
+Try: An xterm.js box that prints 10,000 lines without freezing.",Low,Todo,Tania Ashraf,"product,learning,week-2",1,30/10/2026,Code Hands AI
+Live session screen that stays smooth on long sessions,"Why: Long tasks should not freeze the app.
+
+Done when: A session with 10,000 events scrolls smoothly.",Medium,Todo,Tania Ashraf,"product,desktop,week-2",2,30/10/2026,Code Hands AI
+Our own model code: first provider for our engine,"Why: Our engine needs its own way to call models so we can choose per step.
+
+Done when: Our engine gets answers from a real model through our code, with timeouts, retries and cost from Memona Amir's list.",High,Todo,Tania Ashraf,"models,gateway,week-2",2,30/10/2026,Code Hands AI
+"Weekend learning, week 3","Why: Learn just enough for this week's build. Half a page of notes in docs/learning/Tania Ashraf/week-3.md.
+
+Done when: You have read or watched the items below and tried the small exercise.
+
+Read or watch: The CodeMirror merge view example; the Cline README; the first page of Gemini function calling
+
+Try: Two versions of a file side by side with a button to accept a change.",Low,Todo,Tania Ashraf,"product,learning,week-3",1,06/11/2026,Code Hands AI
+"Change review screen: side by side, accept per file","Why: Approving means reading.
+
+Done when: Read the change side by side with the plan and test results, accept part of it.",High,Todo,Tania Ashraf,"product,desktop,week-3",3,06/11/2026,Code Hands AI
+"Two more providers, one is the free local model","Why: Choosing a model per step only works if switching is easy.
+
+Done when: Our engine runs on three models, one free and local.",High,Todo,Tania Ashraf,"models,gateway,week-3",2,06/11/2026,Code Hands AI
+"Weekend learning, week 4","Why: Learn just enough for this week's build. Half a page of notes in docs/learning/Tania Ashraf/week-4.md.
+
+Done when: You have read or watched the items below and tried the small exercise.
+
+Read or watch: The Tauri stronghold or keyring plugin page
+
+Try: Save a secret in the OS keychain from the app and read it back after a restart.",Low,Todo,Tania Ashraf,"product,learning,week-4",1,13/11/2026,Code Hands AI
+"API keys in the keychain, model per step visible","Why: Keys must never sit in a file.
+
+Done when: No key is in any file. Each step shows which model did it.",High,Todo,Tania Ashraf,"product,desktop,security,week-4",2,13/11/2026,Code Hands AI
+"Weekend learning, week 2","Why: Learn just enough for this week's build. Half a page of notes in docs/learning/Memona Amir/week-2.md.
+
+Done when: You have read or watched the items below and tried the small exercise.
+
+Read or watch: OpenAI's tokenizer page; the Anthropic and OpenAI pricing pages; the OpenRouter models page
+
+Try: A 30-line script that turns tokens and a model name into a cost.",Low,Todo,Memona Amir,"models,learning,week-2",1,30/10/2026,Code Hands AI
+Price list and cost for every call our engine makes,"Why: Know the cost of everything.
+
+Done when: Every session, Claude Code or ours, shows cost step by step on the phone, matching the provider's bill.",High,Todo,Memona Amir,"models,cost,week-2",2,30/10/2026,Code Hands AI
+"Weekend learning, week 3","Why: Learn just enough for this week's build. Half a page of notes in docs/learning/Memona Amir/week-3.md.
+
+Done when: You have read or watched the items below and tried the small exercise.
+
+Read or watch: YAML in Y minutes; the OpenRouter provider routing page; a 10-minute video on cheap-model routing
+
+Try: A YAML file mapping each step to a model with a backup.",Low,Todo,Memona Amir,"models,learning,week-3",1,06/11/2026,Code Hands AI
+"Model per step with a backup, changeable from phone and desktop","Why: Cheap models for easy steps.
+
+Done when: Change which model writes the code from your phone, and the next task uses it and costs less.",High,Todo,Memona Amir,"models,router,product,week-3",3,06/11/2026,Code Hands AI
+"Weekend learning, week 4","Why: Learn just enough for this week's build. Half a page of notes in docs/learning/Memona Amir/week-4.md.
+
+Done when: You have read or watched the items below and tried the small exercise.
+
+Read or watch: The web.dev guide to push notifications for web apps; Anthropic's prompt caching page
+
+Try: Send a push notification to your phone from a script.",Low,Todo,Memona Amir,"product,learning,week-4",1,13/11/2026,Code Hands AI
+Push notification when a task needs approval,"Why: Remote use means the phone tells you, not the other way round.
+
+Done when: Your phone buzzes when a task is ready to approve.",High,Todo,Memona Amir,"product,web,week-4",2,13/11/2026,Code Hands AI
+"Spending limit per task, stop a task that keeps failing","Why: A stuck task should not burn money.
+
+Done when: A stuck task stops itself and the phone says why.",Medium,Todo,Memona Amir,"models,cost,week-4",2,13/11/2026,Code Hands AI
+"Weekend learning, week 2","Why: Learn just enough for this week's build. Half a page of notes in docs/learning/Talha Atif/week-2.md.
+
+Done when: You have read or watched the items below and tried the small exercise.
+
+Read or watch: The OpenTelemetry concepts page; the Ollama README; the Qwen Coder model card
+
+Try: Run Qwen Coder in Ollama and ask it to write a function.",Low,Todo,Talha Atif,"eval,learning,week-2",1,30/10/2026,Code Hands AI
+Ten practice tasks and tracing for our own engine,"Why: More tasks for fairer numbers, and every agent traced the same way.
+
+Done when: Ten tasks. Every session, Claude Code or ours, opens in Langfuse with each step.",High,Todo,Talha Atif,"eval,tracing,week-2",2,30/10/2026,Code Hands AI
+Qwen Coder on the team GPU machine,"Why: A free model to test with.
+
+Done when: Tania Ashraf's model code can call it like any other provider.",High,Todo,Talha Atif,"models,serving,week-2",1,30/10/2026,Code Hands AI
+"Weekend learning, week 3","Why: Learn just enough for this week's build. Half a page of notes in docs/learning/Talha Atif/week-3.md.
+
+Done when: You have read or watched the items below and tried the small exercise.
+
+Read or watch: The first half of Your AI product needs evals; the vLLM quickstart
+
+Try: Make the scoring script take the agent as an option.",Low,Todo,Talha Atif,"eval,learning,week-3",1,06/11/2026,Code Hands AI
+Compare agents on ten tasks,"Why: Numbers tell us how far our engine is from Claude Code.
+
+Done when: One command shows Claude Code, Codex, our engine, and our engine on the local model: solved, time, cost.",High,Todo,Talha Atif,"eval,harness,week-3",3,06/11/2026,Code Hands AI
+"Weekend learning, week 4","Why: Learn just enough for this week's build. Half a page of notes in docs/learning/Talha Atif/week-4.md.
+
+Done when: You have read or watched the items below and tried the small exercise.
+
+Read or watch: A plain-language LLM-as-a-judge explainer
+
+Try: A GitHub Action that fails when a number drops below a threshold.",Low,Todo,Talha Atif,"eval,learning,week-4",1,13/11/2026,Code Hands AI
+Every change must keep the score before merging,"Why: Stops us getting worse without noticing.
+
+Done when: CI runs the sample-mode tasks on every PR and blocks a drop.",High,Todo,Talha Atif,"eval,ci,week-4",1,13/11/2026,Code Hands AI
+Milestone 1 scorecard,"Why: Gives the demo a number.
+
+Done when: How our engine compares with Claude Code on cost and success, shown on Nov 13.",High,Todo,Talha Atif,"eval,milestone,week-4",1,13/11/2026,Code Hands AI
+Plug in with Syeda Midhat Kazmi: Our engine as a choice next to Claude Code in both apps,"Why: Until this Friday you both build against stand-ins. This is the 30-minute swap.
+
+Done when: Run a task on our own engine from the phone. If it breaks, write down why, keep the stand-in, fix it next week.",High,Todo,Tahira Batool,"integration,week-2",1,30/10/2026,Code Hands AI
+Plug in with Memona Amir: Our own model code with prices and cost recording,"Why: Until this Friday you both build against stand-ins. This is the 30-minute swap.
+
+Done when: See what our engine's task cost. If it breaks, write down why, keep the stand-in, fix it next week.",High,Todo,Tania Ashraf,"integration,week-2",1,30/10/2026,Code Hands AI
+Plug in with Tahira Batool: Step recording for our engine,"Why: Until this Friday you both build against stand-ins. This is the 30-minute swap.
+
+Done when: Open our engine's session in Langfuse. If it breaks, write down why, keep the stand-in, fix it next week.",High,Todo,Talha Atif,"integration,week-2",1,30/10/2026,Code Hands AI
+Plug in with Tania Ashraf: The free local model as a provider,"Why: Until this Friday you both build against stand-ins. This is the 30-minute swap.
+
+Done when: Run our engine on the local model. If it breaks, write down why, keep the stand-in, fix it next week.",High,Todo,Talha Atif,"integration,week-3",1,06/11/2026,Code Hands AI
+Plug in with Tahira Batool: The engine reads the model per step,"Why: Until this Friday you both build against stand-ins. This is the 30-minute swap.
+
+Done when: Change a step's model from the phone. If it breaks, write down why, keep the stand-in, fix it next week.",High,Todo,Memona Amir,"integration,week-3",1,06/11/2026,Code Hands AI
+Plug in with Syeda Midhat Kazmi: The test runner on every agent,"Why: Until this Friday you both build against stand-ins. This is the 30-minute swap.
+
+Done when: Compare all agents on ten tasks. If it breaks, write down why, keep the stand-in, fix it next week.",High,Todo,Talha Atif,"integration,week-3",1,06/11/2026,Code Hands AI
+Milestone 1 (Nov 13): what a person can do,"Why: Product milestone.
+
+Done when: The same as week 1, but our own engine does the work: the change happens and tests run inside a locked box, and if the laptop crashes halfway the task still finishes. Approve from the phone. Shown by someone who did not build it, from a fresh download.",Urgent,Todo,Lead,"milestone,week-4",1,13/11/2026,Code Hands AI
+Milestone 2 (Dec 11): what a person can do,"Why: Product milestone.
+
+Done when: Same results for less money: cheapest model per step, cost of every task on screen, the second task on a repo goes better than the first. Shown by someone who did not build it, from a fresh download.",Urgent,Todo,Lead,"milestone,month-2",1,11/12/2026,Code Hands AI
+Milestone 3 (Jan 8): what a person can do,"Why: Product milestone.
+
+Done when: Use it every day: a bug report becomes a reproduced bug, a fix, a short video proving the fix, and a GitHub pull request. Shown by someone who did not build it, from a fresh download.",Urgent,Todo,Lead,"milestone,month-3",1,08/01/2027,Code Hands AI
+Milestone 4 (Feb 5): what a person can do,"Why: Product milestone.
+
+Done when: It picks models by itself at a measured lower cost with the same success rate, tries a few fixes and keeps the best, and starts from a Linear ticket or Slack message. Shown by someone who did not build it, from a fresh download.",Urgent,Todo,Lead,"milestone,month-4",1,05/02/2027,Code Hands AI
+Milestone 5 (Mar 5): what a person can do,"Why: Product milestone.
+
+Done when: Close the laptop and the task keeps going on our cloud. Same memory on a second device. Shown by someone who did not build it, from a fresh download.",Urgent,Todo,Lead,"milestone,month-5",1,05/03/2027,Code Hands AI
+Milestone 6 (Apr 2): what a person can do,"Why: Product milestone.
+
+Done when: A company runs it on its own servers with its own models. Public v0.1 with installers and docs. Shown by someone who did not build it, from a fresh download.",Urgent,Todo,Lead,"milestone,month-6",1,02/04/2027,Code Hands AI
+Apply for cloud credits,"Why: Cloud work starts in month 4 and credits take weeks.
+
+Done when: AWS Activate, Google for Startups and Microsoft for Startups applications sent.",Medium,Todo,Lead,"cloud,cost,week-3",1,06/11/2026,Code Hands AI
+Month 2: Core engine,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Workflows from a file, approval gate, priority queue.",Medium,Todo,Tahira Batool,"core,epic,month-2",5,11/12/2026,Code Hands AI
+Month 3: Core engine,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Verify workflow with a video, branch and pull request on GitHub.",Medium,Todo,Tahira Batool,"core,epic,month-3",5,08/01/2027,Code Hands AI
+Month 4: Core engine,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Several attempts in parallel, tests pick the best.",Medium,Todo,Tahira Batool,"core,epic,month-4",5,05/02/2027,Code Hands AI
+Month 5: Core engine,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Hand a running task to a cloud worker.",Medium,Todo,Tahira Batool,"core,epic,month-5",5,05/03/2027,Code Hands AI
+Month 6: Core engine,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Stronger sandbox (gVisor, microVM test), security review, v0.1.",Medium,Todo,Tahira Batool,"core,epic,month-6",5,02/04/2027,Code Hands AI
+Month 2: Memory,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Search over the repo, remember user preferences, measured with and without.",Medium,Todo,Tahira Batool,"memory,epic,month-2",5,11/12/2026,Code Hands AI
+Month 3: Memory,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Summaries for long tasks, see and edit what is remembered.",Medium,Todo,Tahira Batool,"memory,epic,month-3",5,08/01/2027,Code Hands AI
+Month 4: Memory,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Learn from eval results.",Medium,Todo,Tahira Batool,"memory,epic,month-4",5,05/02/2027,Code Hands AI
+Month 5: Memory,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Memory synced and encrypted across devices.",Medium,Todo,Tahira Batool,"memory,epic,month-5",5,05/03/2027,Code Hands AI
+Month 6: Memory,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Self-hosted sync, delete-everything control.",Medium,Todo,Tahira Batool,"memory,epic,month-6",5,02/04/2027,Code Hands AI
+Month 2: Core command and cloud link,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Workflows from the command line.",Medium,Todo,Syeda Midhat Kazmi,"core,epic,month-2",5,11/12/2026,Code Hands AI
+Month 3: Core command and cloud link,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Connector interface and the GitHub connector.",Medium,Todo,Syeda Midhat Kazmi,"core,epic,month-3",5,08/01/2027,Code Hands AI
+Month 4: Core command and cloud link,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Shared queue across machines, Slack and Linear connectors.",Medium,Todo,Syeda Midhat Kazmi,"core,epic,month-4",5,05/02/2027,Code Hands AI
+Month 5: Core command and cloud link,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Lead Cloud: workers on our cloud, Vercel and AWS connectors.",Medium,Todo,Syeda Midhat Kazmi,"core,epic,month-5",5,05/03/2027,Code Hands AI
+Month 6: Core command and cloud link,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Lead Cloud: one-command self-host, Olostep connector.",Medium,Todo,Syeda Midhat Kazmi,"core,epic,month-6",5,02/04/2027,Code Hands AI
+Month 2: Desktop app,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Workflow editor, first task in five minutes for a new user.",Medium,Todo,Tania Ashraf,"product,epic,month-2",5,11/12/2026,Code Hands AI
+Month 3: Desktop app,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: History, video view, daily polish.",Medium,Todo,Tania Ashraf,"product,epic,month-3",5,08/01/2027,Code Hands AI
+Month 4: Desktop app,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Compare several attempts side by side.",Medium,Todo,Tania Ashraf,"product,epic,month-4",5,05/02/2027,Code Hands AI
+Month 5: Desktop app,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Web app with Memona Amir.",Medium,Todo,Tania Ashraf,"product,epic,month-5",5,05/03/2027,Code Hands AI
+Month 6: Desktop app,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Signed installers, accessibility.",Medium,Todo,Tania Ashraf,"product,epic,month-6",5,02/04/2027,Code Hands AI
+Month 2: Model code,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Caching, streaming.",Medium,Todo,Tania Ashraf,"models,epic,month-2",5,11/12/2026,Code Hands AI
+Month 3: Model code,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Automatic fallback when a provider is down.",Medium,Todo,Tania Ashraf,"models,epic,month-3",5,08/01/2027,Code Hands AI
+Month 4: Model code,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Connect the learned router.",Medium,Todo,Tania Ashraf,"models,epic,month-4",5,05/02/2027,Code Hands AI
+Month 5: Model code,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Use our own hosted model.",Medium,Todo,Tania Ashraf,"models,epic,month-5",5,05/03/2027,Code Hands AI
+Month 6: Model code,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Any model a company runs itself.",Medium,Todo,Tania Ashraf,"models,epic,month-6",5,02/04/2027,Code Hands AI
+Month 2: Cost and routing,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Model per step in daily use, cost report.",Medium,Todo,Memona Amir,"models,epic,month-2",5,11/12/2026,Code Hands AI
+Month 3: Cost and routing,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Budgets and alerts.",Medium,Todo,Memona Amir,"models,epic,month-3",5,08/01/2027,Code Hands AI
+Month 4: Cost and routing,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Router that learns from eval data, saving measured.",Medium,Todo,Memona Amir,"models,epic,month-4",5,05/02/2027,Code Hands AI
+Month 5: Cost and routing,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Rented GPUs and OpenRouter or a model garden.",Medium,Todo,Memona Amir,"models,epic,month-5",5,05/03/2027,Code Hands AI
+Month 6: Cost and routing,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Final cost report.",Medium,Todo,Memona Amir,"models,epic,month-6",5,02/04/2027,Code Hands AI
+Month 2: Phone web app,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Workflows and settings from the phone, same app on a desktop browser.",Medium,Todo,Memona Amir,"product,epic,month-2",5,11/12/2026,Code Hands AI
+Month 3: Phone web app,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Video and change review on the phone.",Medium,Todo,Memona Amir,"product,epic,month-3",5,08/01/2027,Code Hands AI
+Month 4: Phone web app,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Router explainer with override.",Medium,Todo,Memona Amir,"product,epic,month-4",5,05/02/2027,Code Hands AI
+Month 5: Phone web app,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Show tasks running on our cloud.",Medium,Todo,Memona Amir,"product,epic,month-5",5,05/03/2027,Code Hands AI
+Month 6: Phone web app,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: A native app only if the web app is not enough.",Medium,Todo,Memona Amir,"product,epic,month-6",5,02/04/2027,Code Hands AI
+Month 2: Eval and tracing,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Every model on ten tasks, an AI judge checked by humans.",Medium,Todo,Talha Atif,"eval,epic,month-2",5,11/12/2026,Code Hands AI
+Month 3: Eval and tracing,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: 20 SWE-bench Verified tasks, CI blocks drops.",Medium,Todo,Talha Atif,"eval,epic,month-3",5,08/01/2027,Code Hands AI
+Month 4: Eval and tracing,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: 50-task benchmark.",Medium,Todo,Talha Atif,"eval,epic,month-4",5,05/02/2027,Code Hands AI
+Month 5: Eval and tracing,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Dashboards and alerts for the cloud version.",Medium,Todo,Talha Atif,"eval,epic,month-5",5,05/03/2027,Code Hands AI
+Month 6: Eval and tracing,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Security tests, final report.",Medium,Todo,Talha Atif,"eval,epic,month-6",5,02/04/2027,Code Hands AI
+Month 2: Local models and fine-tuning,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Full-size versus compressed (quantized) local models.",Medium,Todo,Talha Atif,"models,epic,month-2",5,11/12/2026,Code Hands AI
+Month 3: Local models and fine-tuning,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Collect successful runs as training data.",Medium,Todo,Talha Atif,"models,epic,month-3",5,08/01/2027,Code Hands AI
+Month 4: Local models and fine-tuning,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Data for the router, two models on one task.",Medium,Todo,Talha Atif,"models,epic,month-4",5,05/02/2027,Code Hands AI
+Month 5: Local models and fine-tuning,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Train a small model on our runs.",Medium,Todo,Talha Atif,"models,epic,month-5",5,05/03/2027,Code Hands AI
+Month 6: Local models and fine-tuning,"Why: Monthly goal. Broken into weekly issues in the last week of the month before.
+
+Done when: Use it if it wins on cost per solved task.",Medium,Todo,Talha Atif,"models,epic,month-6",5,02/04/2027,Code Hands AI
