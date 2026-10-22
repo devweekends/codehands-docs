@@ -1,6 +1,6 @@
 # Code Hands AI
 
-A local-first coding agent platform. It takes a repository-level task, plans it, implements it, tests it in a sandbox, reviews it, and hands a person a change to approve. Five people build it over six months, Oct 19, 2026 to Apr 18, 2027.
+A local-first coding agent platform. It takes a repository-level task, plans it, implements it, tests it, reviews it, and hands a person a change to approve. Built over six months, Oct 19, 2026 to Apr 18, 2027.
 
 This repo holds the plan, the roadmap, the weekly guides and the decisions. Code lives in one repo per part (see [decision 0001](decisions/0001-separate-repos.md)).
 
@@ -17,22 +17,12 @@ This repo holds the plan, the roadmap, the weekly guides and the decisions. Code
 
 ## Repos
 
-One repo per part, each with a single owner. Repos marked *proposed* are created when their owner starts on them.
-
-| Repo | Owner | What | From |
-| --- | --- | --- | --- |
-| `codehands-docs` | everyone | This repo: plan, roadmap, weekly guides, decisions | Week 1 |
-| `codehands-contracts` | Tahira, Midhat (every consumer approves changes) | Shared types, event names, session states, the `Runner` interface | Week 1 |
-| `codehands-runner` | Tahira | Runs Claude Code or Codex in a git worktree per task, turns output into events | Week 1 |
-| `codehands-cli` | Midhat | The `codehands` command and the laptop daemon | Week 1 |
-| `codehands-api` | Midhat | State API on the Linux server: sessions, events, commands | Week 1 |
-| `codehands-desktop` | Tania | Tauri desktop app | Week 1 |
-| `codehands-web` | Memoona | Phone web app on Vercel | Week 1 |
-| `codehands-engine` | Tahira | Our own engine: steps, checkpoints, queue (*proposed*) | Week 2 |
-| `codehands-runtime` | Tahira | Agent tools and the Docker sandbox (*proposed*) | Week 2 |
-| `codehands-memory` | Tahira | Repo, task and user memory (*proposed*) | Month 1, week 2 |
-| `codehands-gateway` | Tania | Our model code: providers, streaming, fallbacks (*proposed*) | Week 2 |
-| `codehands-pricing` | Memoona | Price list, cost per call, model per step, budgets (*proposed*) | Week 1 |
-| `codehands-evals` | Talha | Practice tasks, scoring, tracing, fixtures (*proposed*) | Week 1 |
-
-Names other than Tahira's are suggestions. Each owner picks theirs and updates this table.
+| Repo | Owner | What |
+| --- | --- | --- |
+| [codehands-docs](https://github.com/devweekends/codehands-docs) | everyone | This repo: plan, roadmap, decisions, the design below |
+| [codehands-contracts](https://github.com/devweekends/codehands-contracts) | Midhat, Tahira (every consumer approves changes) | Shared types: local DB schema, `Runner`, cloud API, session states |
+| [codehands-desktop](https://github.com/devweekends/codehands-desktop) | Tania | The desktop app |
+| codehands-daemon (to be created) | Midhat | The laptop daemon, the local DB and the `codehands` CLI, moved out of `codehands-backend` |
+| [codehands-agent](https://github.com/devweekends/codehands-agent) | Tahira | The runner: agent CLIs, models, worktrees, memory |
+| [codehands-backend](https://github.com/devweekends/codehands-backend) | Memoona | The cloud state API and the sync client |
+| [codehands-web](https://github.com/devweekends/codehands-web) | none | Empty. No role in the current design |
