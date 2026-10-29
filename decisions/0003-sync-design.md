@@ -34,7 +34,3 @@ Signing in on a second laptop should bring your sessions, memory and preferences
 - Should the server enforce the legal session moves (C5), or leave that to the daemon?
 - Should events and diffs sync in week 2, or only sessions, memory and preferences?
 
-## To update
-
-- The README of `codehands-backend` still describes the week 1 relay. It gets updated after the sign-in and sync pull requests are merged.
-- The 1 MB diff cap gets enforced, or dropped, when diffs start syncing.
